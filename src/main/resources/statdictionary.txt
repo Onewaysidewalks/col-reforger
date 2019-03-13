@@ -1,0 +1,8 @@
+Phys. Defense
+Magic Defense
+Defense
+Spirit
+New Attributes
+Parry
+Re-roll secondary
+attributes again
