@@ -19,7 +19,8 @@ public class StatUtility {
     }
 
     public static boolean containsPhysicalCrit(String line) {
-        return line.contains("p") && (line.contains("cri") || line.contains("it"));
+        return line.contains("p") && (line.contains("cri") || line.contains("it"))
+                && !line.contains("magic") && !line.contains("spi") && !line.contains("agi");
     }
 
     public static boolean containsMagicalCrit(String line) {
@@ -59,5 +60,15 @@ public class StatUtility {
         return line.contains("parry")
                 || line.contains("par")
                 || line.contains("arr");
+    }
+
+    public static boolean containsTempestRage(String line) {
+        return (line.contains("rage")
+                || line.contains("temp")
+                || line.contains("tmp")
+                || line.contains("pst")
+                || line.contains("rge")
+                || line.contains("pest"))
+                && !line.contains("dead");
     }
 }

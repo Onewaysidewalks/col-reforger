@@ -44,9 +44,7 @@ public class Main extends Applet {
         while (!done) {
             List<String> output = ocr();
 
-            System.out.println(output);
-
-            if (meetsCriteria(2, output)) {
+            if (meetsCriteria(3, output)) {
                 System.out.println("found matching reforge");
                 Media ping = new Media(new File("ping.mp3").toURI().toString());
 
@@ -72,12 +70,19 @@ public class Main extends Applet {
         //todo make criteria generic
         int score = 0;
         for(String line : lines) {
-            if (StatUtility.containsParry(line)) {
+            if (StatUtility.containsPhysicalCrit(line)) {
                 score++;
+                System.out.print(String.format(" %s [1],", line));
+            } else if (StatUtility.containsTempestRage(line)) {
+                score++;
+                System.out.print(String.format(" %s [1],", line));
+            } else {
+                System.out.print(String.format(" %s [0],", line));
             }
         }
 
-        System.out.println("Found score of " + score);
+        System.out.println();
+        System.out.println(" ::: Found score of " + score);
 
         return score >= desiredScore;
     }
