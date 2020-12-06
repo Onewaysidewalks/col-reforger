@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/reforger.iml" filepath="$PROJECT_DIR$/reforger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reforger.iml" filepath="$PROJECT_DIR$/reforger.iml" group="reforger" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/reforger_main.iml" filepath="$PROJECT_DIR$/.idea/modules/reforger_main.iml" group="reforger" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/reforger_test.iml" filepath="$PROJECT_DIR$/.idea/modules/reforger_test.iml" group="reforger" />
     </modules>
   </component>
 </project>

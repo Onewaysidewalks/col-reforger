@@ -1,12 +1,10 @@
 package ninja.onewaysidewalks.reforger;
 
-import javafx.application.Application;
-import javafx.embed.swing.JFXPanel;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import org.bytedeco.javacpp.BytePointer;
-import org.bytedeco.javacpp.lept;
-import org.bytedeco.javacpp.tesseract;
+import net.sourceforge.tess4j.Tesseract;
 
 import javax.imageio.ImageIO;
 import java.applet.Applet;
@@ -18,85 +16,112 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Consumer;
-
-import static org.bytedeco.javacpp.lept.pixRead;
+import java.util.Map;
 
 /**
  * Entry point for application. Requires credentials stored in environment variables prior to execution.
  */
 public class Main extends Applet {
-
-    static String GAME_WINDOW_NAME = "Crusaders of Light";
-    static String PREPROCESS_FILE = "preprocess_image.png";
     static Robot ROBOT;
-    static final JFXPanel fxPanel = new JFXPanel();
+    static Tesseract tesseract = new Tesseract();
 
-    public static void main(String args[]) throws AWTException, InterruptedException {
+    public static void main(String args[]) throws AWTException, InterruptedException, IOException {
         ROBOT = new Robot();
+
+        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+        Config config = mapper.readValue(new File("reforger.yaml"), Config.class);
+
+        if (args.length > 0 && args[0].equalsIgnoreCase("OCR-TEST")) {
+            System.out.println("running as test");
+            config.setTest(true);
+        }
+
+        System.out.println("Running with config: " + config.toString());
 
         if (args.length <= 0) {
             System.out.println("No Valid Argument for App");
             return;
         }
 
+        String windowName = getWindowName(config.getWindowNames());
+
         boolean done = false;
-        while (!done) {
-            List<String> output = ocr();
+        for (int i = 0; i < config.getExecution().getMaxAttempts() && !done; i++) {
+            List<String> output = ocr(config, windowName);
 
-            if (meetsCriteria(1, output)) {
+            if (meetsCriteria(config, output)) {
                 System.out.println("found matching reforge");
-                Media ping = new Media(new File("ping.mp3").toURI().toString());
-
-                new MediaPlayer(ping).play();
 
                 done = true;
             } else {
-                executeReforge();
+                executeReforge(config, windowName);
             }
         }
 
-        while (true) {
-            Thread.sleep(10000);
-        }
+        System.out.println("Execution end");
+        System.in.read();
     }
 
     /**
-     * Evaluate each line for matching criteria
-     * @param desiredScore this many lines must match criteria
-     * @return whether or not the lineset matches
+     * Evaluate each line for matching criteria from config
      */
-    private static boolean meetsCriteria(int desiredScore, List<String> lines) {
-        System.out.println("Looking for score of " + desiredScore);
-        //todo make criteria generic
-        int score = 0;
-        for(String line : lines) {
-//            if (StatUtility.containsPhysicalCrit(line)) {
-//                score++;
-//                System.out.print(String.format(" %s [1],", line));
-//            } else
-            if (StatUtility.containsReigningSword(line)) {
-                score++;
-                System.out.print(String.format(" %s [1],", line));
+    private static boolean meetsCriteria(Config config, List<String> lines) {
+        System.out.println("Looking for " + config.getExecution().getStatToDesiredCount());
+
+        for (Map.Entry<Config.StatType, Integer> desiredStat
+                : config.getExecution().getStatToDesiredCount().entrySet()) {
+            int score = 0;
+
+            for(String line : lines) {
+                boolean matched = true;
+                for (Config.StatConfig statConfig : config.getStats().get(desiredStat.getKey())) {
+                    if (statConfig.getType().equals(Config.StatConfigComparitor.AND)) {
+                        matched = matched && statConfig.getValues().stream().anyMatch(line::contains);
+                    } else if (statConfig.getType().equals(Config.StatConfigComparitor.OR)) {
+                        matched = matched || statConfig.getValues().stream().anyMatch(line::contains);
+                    } else if (statConfig.getType().equals(Config.StatConfigComparitor.AND_NOT)) {
+                        matched = matched && statConfig.getValues().stream().noneMatch(line::contains);
+                    } else {
+                        throw new RuntimeException("Unhandled stat type comparitor " + statConfig.getType());
+                    }
+                }
+
+                if (matched) {
+                    System.out.println(String.format(" %s [1],", line));
+                    score++;
+                } else {
+                    System.out.println(String.format(" %s [0],", line));
+                }
+            }
+
+            if (score >= desiredStat.getValue()) {
+                System.out.println("Matched " + desiredStat.getKey()
+                        + " with a score of " + desiredStat.getValue());
             } else {
-                System.out.print(String.format(" %s [0],", line));
+                //not enough stat present
+                //reforge/abort
+                System.out.println("Insufficient  match, reforging. (Failed on "
+                        + desiredStat.getKey() + " with score " + score + ")");
+                return false;
             }
         }
 
-        System.out.println();
-        System.out.println(" ::: Found score of " + score);
-
-        return score >= desiredScore;
+        return true;
     }
 
     /**
      * Method will execute a click to process reforge
      */
-    private static void executeReforge() throws InterruptedException {
+    private static void executeReforge(Config config, String windowName) throws InterruptedException {
         System.out.println("executing reforge");
         try {
+            if (config.isTest()) {
+                System.out.println("skipping reforge due to test");
+                return;
+            }
+
             //get the bounds/position of the game window
-            Rectangle rectangle = WindowsOSUtility.getRect(GAME_WINDOW_NAME);
+            Rectangle rectangle = WindowsOSUtility.getRect(windowName);
 
             //use relative distances to find the reforge button
             ROBOT.mouseMove((int) ((rectangle.x + rectangle.width) * .8),
@@ -113,15 +138,15 @@ public class Main extends Applet {
         Thread.sleep(4000);
     }
 
-    private static List<String> ocr() {
+    private static List<String> ocr(Config config, String windowName) {
+        List<String> lines = new ArrayList<>();
 
-        BufferedImage rawImage = getWindowImage(GAME_WINDOW_NAME);
+
+        BufferedImage rawImage = getWindowImage(windowName);
         BufferedImage bufferedImage = getCoLReforgeRight(rawImage);
 
-        tesseract.TessBaseAPI tessBaseAPI = new tesseract.TessBaseAPI();
-
         try {
-            File inputFile = new File(PREPROCESS_FILE);
+            File inputFile = new File(config.getPreprocessFile());
 
             if (inputFile.exists()) {
                 System.out.println("preprocessed image already exists, deleting");
@@ -134,38 +159,14 @@ public class Main extends Applet {
 
             ImageIO.write(bufferedImage, "png", inputFile);
 
-
-            tessBaseAPI.Init(null, "eng");
-            lept.PIX image = pixRead(inputFile.getAbsolutePath());
-
-            tessBaseAPI.SetImage(image);
-
-            BytePointer resultPointer = tessBaseAPI.GetUTF8Text();
-            String result = resultPointer.getString();
-
-            try {
-//                System.out.println(result); //debug
-
-                ArrayList<String> retList = new ArrayList<>();
-                Arrays.asList(result.split("\\r?\\n")).forEach(s -> retList.add(s.toLowerCase()));
-
-                return retList;
-            } finally {
-                if (resultPointer != null) {
-                    resultPointer.deallocate();
-                }
-
-                if (image.refcount() >0) image.deallocate();
-
-                tessBaseAPI.End();
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } finally {
-            if (tessBaseAPI != null) {
-                tessBaseAPI.End();
-            }
+            String result = tesseract.doOCR(inputFile);
+            Arrays.asList(result.split(System.lineSeparator()))
+                    .forEach(x -> lines.addAll(Arrays.asList(x.split("\n"))));
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
         }
+
+        return lines;
     }
 
     /**
@@ -204,11 +205,14 @@ public class Main extends Applet {
     @Override
     public void paint(Graphics g) {
         try {
-            System.out.println(WindowsOSUtility.getRect(GAME_WINDOW_NAME).toString());
+            System.out.println(WindowsOSUtility.getRect(getWindowName(
+                    Arrays.asList("Crusaders of Light", "[#] Crusaders of Light [#]"))).toString());
         } catch (WindowsOSUtility.WindowNotFoundException | WindowsOSUtility.GetWindowRectException e) {
             e.printStackTrace();
         }
-        g.drawImage(getWindowImage(GAME_WINDOW_NAME), 0, 0, null);
+        g.drawImage(getWindowImage(getWindowName(
+                Arrays.asList("Crusaders of Light", "[#] Crusaders of Light [#]"))),
+                0, 0, null);
     }
 
     /**
@@ -251,5 +255,19 @@ public class Main extends Applet {
                 }
             }
         }
+    }
+
+    private static String getWindowName(List<String> possibleNames) {
+        for (String name : possibleNames) {
+            try {
+                WindowsOSUtility.getRect(name);
+                System.out.println("Found window with name " + name);
+                return name;
+            } catch (Exception e) {
+                System.out.println(name + " window not found, trying next");
+            }
+        }
+
+        throw new RuntimeException("Window cannot be found, tried: " + possibleNames);
     }
 }

@@ -1,0 +1,53 @@
+execution:
+  maxAttempts: 10 # How many reforges max to do
+  statToDesiredCount: # How many of each stat do you want in a single reforge
+    TEMPEST_RAGE: 1
+
+#============ General configuration, do not touch ==============#
+windowNames: ["[#] Crusaders of Light [#]", "Crusaders of Light"]
+preprocessFile: "build/preprocess_image.png"
+
+#============ Stat definitions, do not touch ===================#
+stats:
+    MAGIC_DAMAGE:
+      - type: AND # First operator MUST be AND
+        values: ["magic", "mgi", "mag"]
+      - type: AND
+        values: ["dam", "dma", "age"]
+    TEMPEST_RAGE:
+      - type: AND # First operator MUST be AND
+        values: ["rage", "temp", "tmp", "pst", "rge", "pest"]
+      - type: AND_NOT
+        values: ["dead"]
+    PARRY:
+      - type: AND # First operator MUST be AND
+        values: ["parry", "par", "arr", "pamr"]
+    REIGNING_SWORD:
+      - type: AND # First operator MUST be AND
+        values: ["rei", "ning", "regning", "g sword", "g sord", "reign"]
+    INTELLECT:
+      - type: AND # First operator MUST be AND
+        values: ["intellect", "lect", "intl", "llec"]
+    DESCENDING_INFERNO:
+      - type: AND # First operator MUST be AND
+        values: ["fern", "dece", "desce", "sce", "ifer", "ding", "fero", "erno", "ending"]
+    PHYSICAL_CRIT:
+      - type: AND # First operator MUST be AND
+        values: ["p"]
+      - type: AND
+        values: ["cri", "it"]
+      - type: AND_NOT
+        values: ["viti", "vita", "magic", "agi", "spi"]
+    MAGICAL_CRIT:
+      - type: AND # First operator MUST be AND
+        values: ["m"]
+      - type: AND
+        values: ["cri", "it"]
+    SPIRITUAL_ATTACK:
+      - type: AND # First operator MUST be AND
+        values: ["spirit", "sprit", "spirual"]
+      - type: AND
+        values: ["attack", "att", "atack"]
+
+
+
