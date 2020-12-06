@@ -59,7 +59,7 @@ public class Main extends Applet {
         }
 
         System.out.println("Execution end");
-        System.in.read();
+//        System.in.read();
     }
 
     /**
@@ -68,45 +68,55 @@ public class Main extends Applet {
     private static boolean meetsCriteria(Config config, List<String> lines) {
         System.out.println("Looking for " + config.getExecution().getStatToDesiredCount());
 
-        for (Map.Entry<Config.StatType, Integer> desiredStat
-                : config.getExecution().getStatToDesiredCount().entrySet()) {
-            int score = 0;
+        for (Map<Config.StatType, Integer> desiredStatMap : config.getExecution().getStatToDesiredCount()) {
+            boolean found = false;
+            for (Map.Entry<Config.StatType, Integer> desiredStat
+                    : desiredStatMap.entrySet()) {
+                int score = 0;
 
-            for(String line : lines) {
-                boolean matched = true;
-                for (Config.StatConfig statConfig : config.getStats().get(desiredStat.getKey())) {
-                    if (statConfig.getType().equals(Config.StatConfigComparitor.AND)) {
-                        matched = matched && statConfig.getValues().stream().anyMatch(line::contains);
-                    } else if (statConfig.getType().equals(Config.StatConfigComparitor.OR)) {
-                        matched = matched || statConfig.getValues().stream().anyMatch(line::contains);
-                    } else if (statConfig.getType().equals(Config.StatConfigComparitor.AND_NOT)) {
-                        matched = matched && statConfig.getValues().stream().noneMatch(line::contains);
+                for (String line : lines) {
+                    line = line.toLowerCase();
+                    boolean matched = true;
+                    for (Config.StatConfig statConfig : config.getStats().get(desiredStat.getKey())) {
+                        if (statConfig.getType().equals(Config.StatConfigComparitor.AND)) {
+                            matched = matched && statConfig.getValues().stream().anyMatch(line::contains);
+                        } else if (statConfig.getType().equals(Config.StatConfigComparitor.OR)) {
+                            matched = matched || statConfig.getValues().stream().anyMatch(line::contains);
+                        } else if (statConfig.getType().equals(Config.StatConfigComparitor.AND_NOT)) {
+                            matched = matched && statConfig.getValues().stream().noneMatch(line::contains);
+                        } else {
+                            throw new RuntimeException("Unhandled stat type comparator " + statConfig.getType());
+                        }
+                    }
+
+                    if (matched) {
+                        System.out.println(String.format(" %s [1],", line));
+                        score++;
                     } else {
-                        throw new RuntimeException("Unhandled stat type comparitor " + statConfig.getType());
+                        System.out.println(String.format(" %s [0],", line));
                     }
                 }
 
-                if (matched) {
-                    System.out.println(String.format(" %s [1],", line));
-                    score++;
+                if (score >= desiredStat.getValue()) {
+                    System.out.println("Matched " + desiredStat.getKey()
+                            + " with a score of " + desiredStat.getValue());
+                    found = true;
                 } else {
-                    System.out.println(String.format(" %s [0],", line));
+                    //not enough stat present
+                    //reforge/abort
+                    System.out.println("Insufficient  match, reforging. (Failed on "
+                            + desiredStat.getKey() + " with score " + score + ")");
+                    found = false;
+                    break;
                 }
             }
 
-            if (score >= desiredStat.getValue()) {
-                System.out.println("Matched " + desiredStat.getKey()
-                        + " with a score of " + desiredStat.getValue());
-            } else {
-                //not enough stat present
-                //reforge/abort
-                System.out.println("Insufficient  match, reforging. (Failed on "
-                        + desiredStat.getKey() + " with score " + score + ")");
-                return false;
+            if (found) {
+                return true;
             }
         }
 
-        return true;
+        return false;
     }
 
     /**
@@ -124,11 +134,19 @@ public class Main extends Applet {
             Rectangle rectangle = WindowsOSUtility.getRect(windowName);
 
             //use relative distances to find the reforge button
-            ROBOT.mouseMove((int) ((rectangle.x + rectangle.width) * .8),
+            //for smaller window
+            ROBOT.mouseMove((int) ((rectangle.x + rectangle.width) * .92),
                     (int) ((rectangle.y + rectangle.height) * .9));
 
             Thread.sleep(1000);
 
+            ROBOT.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+            ROBOT.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+
+            //use relative distances to find the reforge button
+            //for full screen
+            ROBOT.mouseMove((int) ((rectangle.x + rectangle.width) * .90),
+                    (int) ((rectangle.y + rectangle.height) * .9));
             ROBOT.mousePress(InputEvent.BUTTON1_DOWN_MASK);
             ROBOT.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
         } catch (Exception e) {

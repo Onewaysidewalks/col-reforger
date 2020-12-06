@@ -2,65 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b145fa4-93fb-4064-806f-103cb2355ce4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__jakarta_activation_jakarta_activation_api_1_2_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__jakarta_xml_bind_jakarta_xml_bind_api_2_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_dev_jna_jna_5_6_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_dev_jna_jna_platform_5_6_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_codehaus_woodstox_stax2_api_4_2_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/reforger_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/reforger_test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_core_2_9_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_databind_2_9_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_dataformat_jackson_dataformat_xml_2_9_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_module_jackson_module_jaxb_annotations_2_9_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_woodstox_woodstox_core_5_0_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_dev_jna_jna_5_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_dev_jna_jna_platform_5_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_1_4_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_leptonica_1_77_0_1_4_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_leptonica_1_77_0_1_4_4_android_arm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_leptonica_1_77_0_1_4_4_android_arm64.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_leptonica_1_77_0_1_4_4_android_x86.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_leptonica_1_77_0_1_4_4_android_x86_64.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_leptonica_1_77_0_1_4_4_linux_armhf.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_leptonica_1_77_0_1_4_4_linux_ppc64le.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_leptonica_1_77_0_1_4_4_linux_x86.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_leptonica_1_77_0_1_4_4_linux_x86_64.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_leptonica_1_77_0_1_4_4_macosx_x86_64.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_leptonica_1_77_0_1_4_4_windows_x86.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_leptonica_1_77_0_1_4_4_windows_x86_64.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_leptonica_platform_1_77_0_1_4_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_tesseract_4_0_0_1_4_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_tesseract_4_0_0_1_4_4_android_arm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_tesseract_4_0_0_1_4_4_android_arm64.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_tesseract_4_0_0_1_4_4_android_x86.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_tesseract_4_0_0_1_4_4_android_x86_64.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_tesseract_4_0_0_1_4_4_linux_armhf.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_tesseract_4_0_0_1_4_4_linux_ppc64le.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_tesseract_4_0_0_1_4_4_linux_x86.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_tesseract_4_0_0_1_4_4_linux_x86_64.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_tesseract_4_0_0_1_4_4_macosx_x86_64.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_tesseract_4_0_0_1_4_4_windows_x86.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_tesseract_4_0_0_1_4_4_windows_x86_64.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bytedeco_javacpp_presets_tesseract_platform_4_0_0_1_4_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_codehaus_woodstox_stax2_api_3_1_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocess_image.png" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess_image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reforger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/reforger.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reforger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/reforger.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ninja/onewaysidewalks/reforger/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ninja/onewaysidewalks/reforger/Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ninja/onewaysidewalks/reforger/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ninja/onewaysidewalks/reforger/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ninja/onewaysidewalks/reforger/StatUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ninja/onewaysidewalks/reforger/StatUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ninja/onewaysidewalks/reforger/StatUtility.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tessdata/eng.traineddata" beforeDir="false" afterPath="$PROJECT_DIR$/eng.traineddata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_image.PNG" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,15 +80,15 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\onewa\dev\reforger" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\sam\Documents\GitHub\col-reforger" />
       <recent name="C:\Users\sam\Documents\GitHub\col-reforger\src\main\resources" />
       <recent name="C:\Users\onewa\dev\reforger\tessdata" />
       <recent name="C:\Users\onewa\dev\reforger\src\main\java" />
       <recent name="C:\Users\onewa\dev\reforger\src\main" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\onewa\dev\reforger" />
     </key>
   </component>
   <component name="RunManager" selected="Application.ocr-test">
@@ -288,9 +237,6 @@
       </method>
     </configuration>
     <configuration name="ocr-test" type="Application" factoryName="Application">
-      <envs>
-        <env name="TESSDATA_PREFIX" value="tessdata" />
-      </envs>
       <option name="MAIN_CLASS_NAME" value="ninja.onewaysidewalks.reforger.Main" />
       <module name="reforger_main" />
       <option name="PROGRAM_PARAMETERS" value="OCR-TEST" />
@@ -300,9 +246,6 @@
       </method>
     </configuration>
     <configuration name="reforge-run" type="Application" factoryName="Application">
-      <envs>
-        <env name="TESSDATA_PREFIX" value="./tessdata/" />
-      </envs>
       <option name="MAIN_CLASS_NAME" value="ninja.onewaysidewalks.reforger.Main" />
       <module name="reforger_main" />
       <option name="PROGRAM_PARAMETERS" value="RUN" />
@@ -364,7 +307,8 @@
       <option name="presentableId" value="Default" />
       <updated>1550756366976</updated>
       <workItem from="1605391325327" duration="5419000" />
-      <workItem from="1607235123550" duration="5491000" />
+      <workItem from="1607235123550" duration="6891000" />
+      <workItem from="1607280091500" duration="8486000" />
     </task>
     <servers />
   </component>
@@ -380,42 +324,46 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="734" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607236312952">
+    <state x="734" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607291237284">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="734" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607236312952" />
-    <state width="2517" height="492" key="GridCell.Tab.0.bottom" timestamp="1607240050397">
+    <state x="734" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607291237284" />
+    <state width="2517" height="477" key="GridCell.Tab.0.bottom" timestamp="1607290761821">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="492" key="GridCell.Tab.0.bottom/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607240050397" />
-    <state width="2517" height="492" key="GridCell.Tab.0.center" timestamp="1607240050396">
+    <state width="2517" height="477" key="GridCell.Tab.0.bottom/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607290761821" />
+    <state width="2517" height="477" key="GridCell.Tab.0.center" timestamp="1607290761820">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="492" key="GridCell.Tab.0.center/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607240050396" />
-    <state width="2517" height="492" key="GridCell.Tab.0.left" timestamp="1607240050396">
+    <state width="2517" height="477" key="GridCell.Tab.0.center/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607290761820" />
+    <state width="2517" height="477" key="GridCell.Tab.0.left" timestamp="1607290761820">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="492" key="GridCell.Tab.0.left/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607240050396" />
-    <state width="2517" height="492" key="GridCell.Tab.0.right" timestamp="1607240050397">
+    <state width="2517" height="477" key="GridCell.Tab.0.left/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607290761820" />
+    <state width="2517" height="477" key="GridCell.Tab.0.right" timestamp="1607290761820">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="492" key="GridCell.Tab.0.right/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607240050397" />
-    <state width="2517" height="492" key="GridCell.Tab.1.bottom" timestamp="1607240050397">
+    <state width="2517" height="477" key="GridCell.Tab.0.right/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607290761820" />
+    <state width="2517" height="492" key="GridCell.Tab.1.bottom" timestamp="1607242132418">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="492" key="GridCell.Tab.1.bottom/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607240050397" />
-    <state width="2517" height="492" key="GridCell.Tab.1.center" timestamp="1607240050397">
+    <state width="2517" height="492" key="GridCell.Tab.1.bottom/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607242132418" />
+    <state width="2517" height="492" key="GridCell.Tab.1.center" timestamp="1607242132418">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="492" key="GridCell.Tab.1.center/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607240050397" />
-    <state width="2517" height="492" key="GridCell.Tab.1.left" timestamp="1607240050397">
+    <state width="2517" height="492" key="GridCell.Tab.1.center/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607242132418" />
+    <state width="2517" height="492" key="GridCell.Tab.1.left" timestamp="1607242132417">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="492" key="GridCell.Tab.1.left/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607240050397" />
-    <state width="2517" height="492" key="GridCell.Tab.1.right" timestamp="1607240050397">
+    <state width="2517" height="492" key="GridCell.Tab.1.left/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607242132417" />
+    <state width="2517" height="492" key="GridCell.Tab.1.right" timestamp="1607242132418">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="492" key="GridCell.Tab.1.right/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607240050397" />
+    <state width="2517" height="492" key="GridCell.Tab.1.right/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607242132418" />
+    <state x="927" y="314" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1607283039031">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="927" y="314" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607283039031" />
     <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1607238255786">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

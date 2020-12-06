@@ -1,7 +1,15 @@
 execution:
-  maxAttempts: 10 # How many reforges max to do
+  maxAttempts: 300 # How many reforges max to do
   statToDesiredCount: # How many of each stat do you want in a single reforge
-    TEMPEST_RAGE: 1
+    - TEMPEST_RAGE: 2
+    - SEARING_CHAINS: 2
+    - MAGMA_SPIKES: 2
+    - ANVIL_DROP: 2
+    - METEOR_CRATER: 2
+    - DEADLY_FORGE: 2
+    - LAVA_QUAKE: 2
+    - FLAMING_SIGIL: 2
+
 
 #============ General configuration, do not touch ==============#
 windowNames: ["[#] Crusaders of Light [#]", "Crusaders of Light"]
@@ -9,16 +17,52 @@ preprocessFile: "build/preprocess_image.png"
 
 #============ Stat definitions, do not touch ===================#
 stats:
+
+    TEMPEST_RAGE:
+      - type: AND # First operator MUST be AND
+        values: ["rage", "temp", "tmp", "pst", "rge", "pest"]
+      - type: AND_NOT
+        values: ["dead", "Dead"]
+    SEARING_CHAINS:
+      - type: AND # First operator MUST be AND
+        values: ["sear"]
+      - type: AND
+        values: ["chai"]
+    MAGMA_SPIKES:
+      - type: AND # First operator MUST be AND
+        values: ["magm"]
+      - type: AND
+        values: ["spik"]
+    ANVIL_DROP:
+      - type: AND # First operator MUST be AND
+        values: ["anv"]
+      - type: AND
+        values: ["dro"]
+    METEOR_CRATER:
+      - type: AND # First operator MUST be AND
+        values: ["mete"]
+      - type: AND
+        values: ["crat"]
+    DEADLY_FORGE:
+      - type: AND # First operator MUST be AND
+        values: ["dead", "Dead"]
+      - type: AND
+        values: ["forg", "orge"]
+    LAVA_QUAKE:
+      - type: AND # First operator MUST be AND
+        values: ["lav", "ava"]
+      - type: AND
+        values: ["quak", "ake"]
+    FLAMING_SIGIL:
+      - type: AND # First operator MUST be AND
+        values: ["flam", "aming"]
+      - type: AND
+        values: ["sigi", "igil", "igl"]
     MAGIC_DAMAGE:
       - type: AND # First operator MUST be AND
         values: ["magic", "mgi", "mag"]
       - type: AND
         values: ["dam", "dma", "age"]
-    TEMPEST_RAGE:
-      - type: AND # First operator MUST be AND
-        values: ["rage", "temp", "tmp", "pst", "rge", "pest"]
-      - type: AND_NOT
-        values: ["dead"]
     PARRY:
       - type: AND # First operator MUST be AND
         values: ["parry", "par", "arr", "pamr"]

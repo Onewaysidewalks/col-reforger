@@ -31,8 +31,8 @@ public class Config {
     static class ExecutionConfig {
         private int maxAttempts = 1;
 
-        //Always compared with AND
-        private Map<StatType, Integer> statToDesiredCount = new HashMap<>();
+        //Always compare list items with OR, but map items with AND
+        private List<Map<StatType, Integer>> statToDesiredCount = new ArrayList<>();
     }
 
     enum StatConfigComparitor {
@@ -40,10 +40,21 @@ public class Config {
     }
 
     enum StatType {
+        TEMPEST_RAGE,
+        SEARING_CHAINS,
+        MAGMA_SPIKES,
+        ANVIL_DROP,
+        METEOR_CRATER,
+        DEADLY_FORGE,
+        LAVA_QUAKE,
+        FLAMING_SIGIL,
         MAGIC_DAMAGE,
         REIGNING_SWORD,
         INTELLECT,
-        TEMPEST_RAGE,
-        PARRY
+        PARRY,
+        DESCENDING_INFERNO,
+        PHYSICAL_CRIT,
+        MAGICAL_CRIT,
+        SPIRITUAL_ATTACK
     }
 }
