@@ -2,6 +2,12 @@
 
 Hate reforging in Crusaders of light? This is the tool for you!
 
+### Requirements
+The only requirement to run this tool is java 8 SDK. Most computers already have this installed.
+If you do not, you can install and set it up here: [Direct Download link from Oracle](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
+
+
+### How to use
 Simply ...
 
 - clone/download this repository
@@ -10,7 +16,7 @@ Simply ...
 
 ![image](example.png) 
 
-- open the command prompt or powershell window to this directory, and run `./gradlew reforge` 
+- open the command prompt or powershell window to this directory, and run `gradlew.bat reforge` 
 
 Note: make sure the command prompt window does not overlap with the CoL window.
 
