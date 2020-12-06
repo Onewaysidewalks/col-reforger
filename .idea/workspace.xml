@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6b145fa4-93fb-4064-806f-103cb2355ce4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reforger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/reforger.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ninja/onewaysidewalks/reforger/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ninja/onewaysidewalks/reforger/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ninja/onewaysidewalks/reforger/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ninja/onewaysidewalks/reforger/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ninja/onewaysidewalks/reforger/StatUtility.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tessdata/eng.traineddata" beforeDir="false" afterPath="$PROJECT_DIR$/eng.traineddata" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_image.PNG" beforeDir="false" />
-    </list>
+    <list default="true" id="6b145fa4-93fb-4064-806f-103cb2355ce4" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -308,7 +299,7 @@
       <updated>1550756366976</updated>
       <workItem from="1605391325327" duration="5419000" />
       <workItem from="1607235123550" duration="6891000" />
-      <workItem from="1607280091500" duration="8486000" />
+      <workItem from="1607280091500" duration="8896000" />
     </task>
     <servers />
   </component>
