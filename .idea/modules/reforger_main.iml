@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="reforger:main" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="ninja.onewaysidewalks.reforger" external.system.module.type="sourceSet" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
+<module external.linked.project.id="reforger:main" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="ninja.onewaysidewalks.colreforger" external.system.module.type="sourceSet" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/../../build/classes/java/main" />
     <exclude-output />
@@ -16,7 +16,6 @@
     <orderEntry type="library" name="Gradle: net.java.dev.jna:jna:5.6.0" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.12.0" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.12.0" level="project" />
-    <orderEntry type="library" name="Gradle: org.projectlombok:lombok:1.18.6" level="project" />
     <orderEntry type="library" name="Gradle: com.github.jai-imageio:jai-imageio-core:1.4.0" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.pdfbox:pdfbox-tools:2.0.21" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.pdfbox:pdfbox-debugger:2.0.21" level="project" />
@@ -42,6 +41,7 @@
     <orderEntry type="library" name="Gradle: org.jboss.logging:jboss-logging:3.1.4.GA" level="project" />
     <orderEntry type="library" name="Gradle: ch.qos.logback:logback-core:1.2.3" level="project" />
     <orderEntry type="library" name="Gradle: jakarta.xml.bind:jakarta.xml.bind-api:2.3.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.projectlombok:lombok:1.18.6" level="project" />
     <orderEntry type="library" name="Gradle: jakarta.activation:jakarta.activation-api:1.2.1" level="project" />
     <orderEntry type="library" name="Gradle: commons-collections:commons-collections:3.2.1" level="project" />
   </component>

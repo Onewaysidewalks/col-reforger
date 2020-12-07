@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '4.0.4'
 }
 
 group 'ninja.onewaysidewalks.colreforger'
@@ -27,6 +28,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
 
+//Contribution Related Tasks
 task runTest(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     main = "ninja.onewaysidewalks.reforger.Main"
@@ -38,3 +40,59 @@ task reforge(type: JavaExec) {
     main = "ninja.onewaysidewalks.reforger.Main"
     setArgs(Arrays.asList("RUN"))
 }
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'ninja.onewaysidewalks.reforger.Main'
+    }
+}
+
+//Package related tasks
+task shadow32(type: com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar) {
+    from sourceSets.main.output
+    configurations = [project.configurations.runtime]
+    manifest.attributes 'Main-Class': 'ninja.onewaysidewalks.reforger.Main'
+    destinationDir = file("build/libs/32")
+    archiveName = "colreforger32.jar"
+}
+
+task shadow64(type: com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar) {
+    from sourceSets.main.output
+    archiveName = "colreforger64.jar"
+    configurations = [project.configurations.runtime]
+    manifest.attributes 'Main-Class': 'ninja.onewaysidewalks.reforger.Main'
+    destinationDir = file("build/libs/64")
+    zip64 = true
+}
+
+task packageFor32Release(type: Copy) {
+    from "eng.traineddata"
+    from "reforger.yaml"
+    from "build/libs/32"
+    from "ping.mp3"
+
+    into "build/releases/32"
+
+    doFirst {
+        mkdir "build/releases/32/build"
+    }
+}
+
+task packageFor64Release(type: Copy) {
+    from "eng.traineddata"
+    from "reforger.yaml"
+    from "build/libs/64"
+    from "ping.mp3"
+
+    into "build/releases/64"
+
+    doFirst {
+        mkdir "build/releases/64/build"
+    }
+}
+
+packageFor32Release.dependsOn(shadow32)
+packageFor64Release.dependsOn(shadow64)
+
+task packageForRelease {}
+packageForRelease.dependsOn("packageFor32Release", "packageFor64Release")

@@ -2,8 +2,6 @@ package ninja.onewaysidewalks.reforger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import net.sourceforge.tess4j.Tesseract;
 
 import javax.imageio.ImageIO;
@@ -13,6 +11,8 @@ import java.awt.event.InputEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -24,8 +24,12 @@ import java.util.Map;
 public class Main extends Applet {
     static Robot ROBOT;
     static Tesseract tesseract = new Tesseract();
+    static String systemName = System.getProperty("os.name").toLowerCase();
 
     public static void main(String args[]) throws AWTException, InterruptedException, IOException {
+
+        ensureConsoleWindow(args);
+
         ROBOT = new Robot();
 
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
@@ -37,11 +41,6 @@ public class Main extends Applet {
         }
 
         System.out.println("Running with config: " + config.toString());
-
-        if (args.length <= 0) {
-            System.out.println("No Valid Argument for App");
-            return;
-        }
 
         String windowName = getWindowName(config.getWindowNames());
 
@@ -59,7 +58,6 @@ public class Main extends Applet {
         }
 
         System.out.println("Execution end");
-//        System.in.read();
     }
 
     /**
@@ -275,6 +273,9 @@ public class Main extends Applet {
         }
     }
 
+    /**
+     * Get Window name based on possible values
+     */
     private static String getWindowName(List<String> possibleNames) {
         for (String name : possibleNames) {
             try {
@@ -287,5 +288,38 @@ public class Main extends Applet {
         }
 
         throw new RuntimeException("Window cannot be found, tried: " + possibleNames);
+    }
+
+    //Taken from https://github.com/Lartsch/java-selfconsole/blob/master/Main.java
+    //to support consoled double click
+    private static void ensureConsoleWindow(String[] args) throws IOException {
+
+        if (args.length == 0) {
+            // get the path of the currently running jar
+            final String jarPath = Main.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+            final String decodedPath;
+            try {
+                decodedPath = URLDecoder.decode(jarPath, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
+            }
+            // Setting for the terminal window title (Linux/Windows)
+            final String windowTitle = "App Name";
+            // Check the current platform...
+            if(systemName.contains("windows")) {
+                // then start the new process with the OS or terminal dependent commands
+                new ProcessBuilder(new String[] {"cmd", "/k", "start", "\""+windowTitle+"\"", "java", "-jar", decodedPath.substring(1), "RUN"}).start();
+            } else if(systemName.contains("mac")) {
+                new ProcessBuilder(new String[] {"/bin/bash", "-c", "java", "-jar", decodedPath, "run"}).start();
+            } else if(systemName.contains("linux")) {
+                // TODO: add support for other Linux terminals
+                new ProcessBuilder(new String[] {"xfce4-terminal", "--title="+windowTitle, "--hold", "-x", "java", "-jar", decodedPath, "RUN"}).start();
+            } else {
+                // No OS could be detected
+                System.err.println("OS could not be detected.");
+            }
+            // destroy the original process
+            System.exit(0);
+        }
     }
 }
