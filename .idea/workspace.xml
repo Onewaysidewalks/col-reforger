@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b145fa4-93fb-4064-806f-103cb2355ce4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/reforger_main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/reforger_main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/reforger_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/reforger_test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reforger.iml" beforeDir="false" afterPath="$PROJECT_DIR$/reforger.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ninja/onewaysidewalks/reforger/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ninja/onewaysidewalks/reforger/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -309,7 +304,7 @@
       <workItem from="1605391325327" duration="5419000" />
       <workItem from="1607235123550" duration="6891000" />
       <workItem from="1607280091500" duration="15402000" />
-      <workItem from="1607300044724" duration="665000" />
+      <workItem from="1607300044724" duration="1150000" />
     </task>
     <servers />
   </component>

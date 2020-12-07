@@ -10,7 +10,7 @@ If you do not, you can install and set it up here: [Direct Download link from Or
 ### How to use
 Simply ...
 
-- Download the zipped release from [here](https://github.com/Onewaysidewalks/col-reforger/releases)
+- Download the zipped release from [here](https://github.com/Onewaysidewalks/col-reforger/releases). E.g. colreforger-x64.zip
 - extract the file into a folder.
 - change the `reforger.yaml` to which stats you want to reforge for if needed. (The default is 2 skill roll, with 100 max attempts to get)
 - make sure your CoL window is open to a screen that looks like this: 
@@ -33,3 +33,10 @@ If you want to help contribute to which classes are supported, please open an is
 
 The screen shots should look exactly like this:
 ![example](example.png)
+
+### For delevopers
+To create release artifacts, run
+
+```bash
+./gradlew clean packageForRelease
+```

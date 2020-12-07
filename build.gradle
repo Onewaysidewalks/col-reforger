@@ -91,8 +91,27 @@ task packageFor64Release(type: Copy) {
     }
 }
 
+task releaseZip32(type: Zip) {
+    from 'build/releases/32'
+    include '*'
+    include '*/*' //to include contents of a folder present inside Reports directory
+    archiveName 'colreforger-x32.zip'
+    destinationDir(file('build/releases/'))
+}
+
+task releaseZip64(type: Zip) {
+    from 'build/releases/64'
+    include '*'
+    include '*/*' //to include contents of a folder present inside Reports directory
+    archiveName 'colreforger-x64.zip'
+    destinationDir(file('build/releases/'))
+}
+
 packageFor32Release.dependsOn(shadow32)
 packageFor64Release.dependsOn(shadow64)
 
+releaseZip32.dependsOn(packageFor32Release)
+releaseZip64.dependsOn(packageFor64Release)
+
 task packageForRelease {}
-packageForRelease.dependsOn("packageFor32Release", "packageFor64Release")
+packageForRelease.dependsOn("releaseZip32", "releaseZip64")
