@@ -9,6 +9,18 @@ execution:
     - DEADLY_FORGE: 2
     - LAVA_QUAKE: 2
     - FLAMING_SIGIL: 2
+    - REIGNING_SWORD: 2
+    - DESCENDING_INFERNO: 2
+    - SPIRITUAL_ATTACK: 2
+    - ASSAULT: 2
+    - LACERATION: 2
+    - WEAKNESS_STRIKE: 2
+    - PIERCE: 2
+    - DASH: 2
+    - BLADE_TEMPEST: 2
+    - FLYING_BLADE: 2
+    - SHADOW_BLADE: 2
+
 
 
 #============ General configuration, do not touch ==============#
@@ -92,6 +104,36 @@ stats:
         values: ["spirit", "sprit", "spirual"]
       - type: AND
         values: ["attack", "att", "atack"]
-
-
+    WEAKNESS_STRIKE:
+      - type: AND # First operator MUST be AND
+        values: ["weak", "ness", "eakne"]
+      - type: AND
+        values: ["strik", "strke", "rike"]
+    FLYING_BLADE:
+      - type: AND # First operator MUST be AND
+        values: ["flying", "flyng", "yling"]
+      - type: AND
+        values: ["blade", "blde", "alde"]
+    SHADOW_BLADE:
+      - type: AND # First operator MUST be AND
+        values: ["shadow", "adow", "shadw", "sadow"]
+      - type: AND
+        values: ["blade", "blde", "alde"]
+    ASSAULT:
+      - type: AND # First operator MUST be AND
+        values: ["assa", "ault", "alt"]
+    LACERATION:
+      - type: AND # First operator MUST be AND
+        values: ["lacer", "ation", "lcer"]
+    PIERCE:
+      - type: AND # First operator MUST be AND
+        values: ["pierce", "ierce", "perce"]
+    DASH:
+      - type: AND # First operator MUST be AND
+        values: ["dash", "dsh"]
+    BLADE_TEMPEST:
+      - type: AND # First operator MUST be AND
+        values: ["blade", "adle", "bld"]
+      - type: AND
+        values: ["tempest", "pest", "mest"]
 

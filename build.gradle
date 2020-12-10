@@ -35,6 +35,12 @@ task runTest(type: JavaExec) {
     setArgs(Arrays.asList("OCR-TEST"))
 }
 
+task parseTest(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = "ninja.onewaysidewalks.reforger.Main"
+    setArgs(Arrays.asList("PARSE-TEST"))
+}
+
 task reforge(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     main = "ninja.onewaysidewalks.reforger.Main"
