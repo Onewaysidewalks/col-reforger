@@ -40,6 +40,12 @@ public class Main extends Applet {
             config.setTest(true);
         }
 
+        if (args.length > 0 && args[0].equalsIgnoreCase("PARSE-TEST")) {
+            System.out.println("running as test");
+            config.setTest(true);
+            config.setTestFile("parse.png");
+        }
+
         System.out.println("Running with config: " + config.toString());
 
         String windowName = getWindowName(config.getWindowNames());
@@ -158,7 +164,7 @@ public class Main extends Applet {
         List<String> lines = new ArrayList<>();
 
 
-        BufferedImage rawImage = getWindowImage(windowName);
+        BufferedImage rawImage = getWindowImage(windowName, config);
         BufferedImage bufferedImage = getCoLReforgeRight(rawImage);
 
         try {
@@ -204,10 +210,14 @@ public class Main extends Applet {
      * The window MUST be in the foreground (so using fullscreen is not optimal)
      * @return the image
      */
-    private static BufferedImage getWindowImage(String windowName) {
+    private static BufferedImage getWindowImage(String windowName, Config config) {
         try {
-            return ROBOT.createScreenCapture(WindowsOSUtility.getRect(windowName));
-        } catch (WindowsOSUtility.GetWindowRectException | WindowsOSUtility.WindowNotFoundException e) {
+            if (config.getTestFile() == null) {
+                return ROBOT.createScreenCapture(WindowsOSUtility.getRect(windowName));
+            } else {
+                return ImageIO.read(new File(config.getTestFile()));
+            }
+        } catch (WindowsOSUtility.GetWindowRectException | WindowsOSUtility.WindowNotFoundException | IOException e) {
             e.printStackTrace();
         }
 
@@ -227,7 +237,7 @@ public class Main extends Applet {
             e.printStackTrace();
         }
         g.drawImage(getWindowImage(getWindowName(
-                Arrays.asList("Crusaders of Light", "[#] Crusaders of Light [#]"))),
+                Arrays.asList("Crusaders of Light", "[#] Crusaders of Light [#]")), new Config()),
                 0, 0, null);
     }
 

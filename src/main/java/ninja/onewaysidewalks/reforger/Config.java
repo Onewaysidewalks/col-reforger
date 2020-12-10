@@ -19,6 +19,8 @@ public class Config {
 
     private boolean test;
 
+    private String testFile;
+
     @Data
     @ToString
     static class StatConfig {
@@ -55,6 +57,14 @@ public class Config {
         DESCENDING_INFERNO,
         PHYSICAL_CRIT,
         MAGICAL_CRIT,
-        SPIRITUAL_ATTACK
+        SPIRITUAL_ATTACK,
+        WEAKNESS_STRIKE,
+        FLYING_BLADE,
+        SHADOW_BLADE,
+        ASSAULT,
+        LACERATION,
+        PIERCE,
+        DASH,
+        BLADE_TEMPEST
     }
 }

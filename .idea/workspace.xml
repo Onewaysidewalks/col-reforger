@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6b145fa4-93fb-4064-806f-103cb2355ce4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reforger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/reforger.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ninja/onewaysidewalks/reforger/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ninja/onewaysidewalks/reforger/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ninja/onewaysidewalks/reforger/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ninja/onewaysidewalks/reforger/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +66,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -240,6 +243,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="parse-test" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ninja.onewaysidewalks.reforger.Main" />
+      <module name="reforger_main" />
+      <option name="PROGRAM_PARAMETERS" value="PARSE-TEST" />
+      <shortenClasspath name="MANIFEST" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="reforge-run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ninja.onewaysidewalks.reforger.Main" />
       <module name="reforger_main" />
@@ -276,6 +288,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.ocr-test" />
+      <item itemvalue="Application.parse-test" />
       <item itemvalue="Application.reforge-run" />
     </list>
   </component>
@@ -305,6 +318,7 @@
       <workItem from="1607235123550" duration="6891000" />
       <workItem from="1607280091500" duration="15402000" />
       <workItem from="1607300044724" duration="1150000" />
+      <workItem from="1607560929412" duration="1602000" />
     </task>
     <servers />
   </component>
@@ -320,26 +334,26 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="734" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607291237284">
+    <state x="734" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607561451678">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="734" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607291237284" />
-    <state width="2517" height="477" key="GridCell.Tab.0.bottom" timestamp="1607290761821">
+    <state x="734" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607561451678" />
+    <state width="2517" height="825" key="GridCell.Tab.0.bottom" timestamp="1607563939025">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="477" key="GridCell.Tab.0.bottom/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607290761821" />
-    <state width="2517" height="477" key="GridCell.Tab.0.center" timestamp="1607290761820">
+    <state width="2517" height="825" key="GridCell.Tab.0.bottom/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607563939025" />
+    <state width="2517" height="825" key="GridCell.Tab.0.center" timestamp="1607563939024">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="477" key="GridCell.Tab.0.center/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607290761820" />
-    <state width="2517" height="477" key="GridCell.Tab.0.left" timestamp="1607290761820">
+    <state width="2517" height="825" key="GridCell.Tab.0.center/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607563939024" />
+    <state width="2517" height="825" key="GridCell.Tab.0.left" timestamp="1607563939024">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="477" key="GridCell.Tab.0.left/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607290761820" />
-    <state width="2517" height="477" key="GridCell.Tab.0.right" timestamp="1607290761820">
+    <state width="2517" height="825" key="GridCell.Tab.0.left/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607563939024" />
+    <state width="2517" height="825" key="GridCell.Tab.0.right" timestamp="1607563939025">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="477" key="GridCell.Tab.0.right/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607290761820" />
+    <state width="2517" height="825" key="GridCell.Tab.0.right/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607563939025" />
     <state width="2517" height="492" key="GridCell.Tab.1.bottom" timestamp="1607242132418">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -356,10 +370,14 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="492" key="GridCell.Tab.1.right/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607242132418" />
-    <state x="927" y="314" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1607283039031">
+    <state x="927" y="314" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1607563773058">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="927" y="314" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607283039031" />
+    <state x="927" y="314" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607563773058" />
+    <state x="936" y="330" key="run.anything.popup" timestamp="1607561034633">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="936" y="330" key="run.anything.popup/2560.0.2560.1400/0.0.2560.1400@0.0.2560.1400" timestamp="1607561034633" />
     <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1607238255786">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
