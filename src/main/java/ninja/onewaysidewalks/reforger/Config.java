@@ -33,6 +33,9 @@ public class Config {
     static class ExecutionConfig {
         private int maxAttempts = 1;
 
+        private float heightRatioForClick = .9f;
+        private float widthRatioForClick = .92f;
+
         //Always compare list items with OR, but map items with AND
         private List<Map<StatType, Integer>> statToDesiredCount = new ArrayList<>();
     }
