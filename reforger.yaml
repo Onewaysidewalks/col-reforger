@@ -1,5 +1,7 @@
 execution:
   maxAttempts: 300 # How many reforges max to do
+  widthRatioForClick: .8 #what percentage from the left of the window the click should occurr
+  heightRatioForClick: .9 #what percentage from the top of the window the click should occur
   statToDesiredCount: # How many of each stat do you want in a single reforge
     - TEMPEST_RAGE: 2
     - SEARING_CHAINS: 2

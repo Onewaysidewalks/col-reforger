@@ -138,19 +138,11 @@ public class Main extends Applet {
             Rectangle rectangle = WindowsOSUtility.getRect(windowName);
 
             //use relative distances to find the reforge button
-            //for smaller window
-            ROBOT.mouseMove((int) ((rectangle.x + rectangle.width) * .92),
-                    (int) ((rectangle.y + rectangle.height) * .9));
+            ROBOT.mouseMove((int) ((rectangle.x + rectangle.width) * config.getExecution().getWidthRatioForClick()),
+                    (int) ((rectangle.y + rectangle.height) * config.getExecution().getHeightRatioForClick()));
 
             Thread.sleep(1000);
 
-            ROBOT.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-            ROBOT.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-
-            //use relative distances to find the reforge button
-            //for full screen
-            ROBOT.mouseMove((int) ((rectangle.x + rectangle.width) * .90),
-                    (int) ((rectangle.y + rectangle.height) * .9));
             ROBOT.mousePress(InputEvent.BUTTON1_DOWN_MASK);
             ROBOT.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
         } catch (Exception e) {
